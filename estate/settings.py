@@ -184,7 +184,7 @@ CLOUDINARY_STORAGE = {
 }
 
 
-import dj_database_url
+# import dj_database_url
 # # DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 if 'DATABASE_URL' in os.environ:
