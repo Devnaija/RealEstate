@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+  <link href="{% static 'img/bn1.jpg' %}" rel="shortcut icon" type="img/x-icon">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+  <!-- lightbox -->
+  <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+  <!-- custom styling -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <title>Real Estate {% block title %}{% endblock %} </title>
+</head>
+<body>
+  {% include 'partial/_navbar.html' %}
+  {% block content %}
+ 
+
+  {% endblock %}
+
+  {% include 'partial/_footer.html' %}
+
+  <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/lightbox.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

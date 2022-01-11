@@ -1,0 +1,112 @@
+{% extends 'base.html'%}
+{% load static%}
+ {% block title %}| About{% endblock %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="dsiplay-4">About Real Estate</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias officiis voluptatibus sed debitis dolore tenetur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- bedcrum -->
+<section id="bd" class="mt-3">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'index' %}"><i class="fas fa-home"></i>Home</a>
+        </li>
+        <li class="breadcrumb-item active">About</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- about -->
+<section id="about" class="py-4">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-8">
+        <h3>We Search For The Perfect Home</h3>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, distinctio!</p>
+        <img src="{% static 'img/bn1.jpg' %}" alt="">
+        <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ipsam est necessitatibus incidunt quaerat amet eos qui earum quibusdam voluptates distinctio numquam, aspernatur quos deleniti esse repellendus dignissimos iure.</p>
+      </div>
+      {% if showmvp %}
+        
+      {% for mvp in showmvp %}
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{{ mvp.photo.url }}" height="500" alt="{{mvp.name }}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Seller Of The Month</h5>
+              <hr>
+              <h6 class="text-secondary">{{mvp.name}}</h6>
+              <p class="card-text">{{mvp.description}}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      
+      {% else %}
+      <div class="col-md-12">
+        <p class="lead">No Seller of The Month</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- work -->
+<section id="work" class="bg-dark text-white text-center">
+  <h2 class="display-4">We Work For You</h2>
+  <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, vero.</h4>
+  <hr>
+  <a href="" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+</section>
+
+<!-- teams -->
+<div id="team" class="py-5">
+  <div class="container">
+    <h2 class="text-center">
+      Our Team
+    </h2>
+    <div class="row text-center">
+     
+     {% if shows %}
+      {% for item in shows %}
+      <div class="col-md-4">
+        <img src="{{ item.photo.url }}" height="400" width="50" alt="" class="rounded-circle mt-3">
+        <h4>{{item.name}}</h4>
+        <p class="text-success">
+          <i class="fas fa-award text-success mb-3"></i> Realtor
+        </p>
+        <hr>
+        <p>
+          <i class="fas fa-phone"></i> {{item.phone}}
+        </p>
+        <p><i class="fas fa-envelope-open"></i> {{item.email}}</p>
+      </div>
+      {% endfor %}
+     {% else %}
+      <div class="card">
+        <p class="lead">
+          No Realtor Available
+        </p>
+      </div>
+     {% endif %}
+     
+   
+    </div>
+  </div>
+</div>
+
+{% endblock %}

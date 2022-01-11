@@ -1,0 +1,97 @@
+{% load static %}
+<!-- top bar -->
+<section id="top-bar" class="p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <i class="fas fa-phone"> (+234)90-2625-3605</i>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-envelope-open"> contact@realestate.com</i>
+      </div>
+      <div class="col-md-4">
+        <div class="social text-right">
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-facebook"></i></a>
+          <a href=""><i class="fab fa-linkedin"></i></a>
+          <a href=""><i class="fab fa-instagram"></i></a>
+          <a href=""><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a href="" class="navbar-brand">
+        <img class="rounded-circle"  src="{% static 'img/bn1.jpg' %}" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navscroll">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navscroll">
+        <ul class="navbar-nav">
+         
+          <li {% if '/' == request.path %} class="nav-item active mr-3"
+              {% else %}
+          class="nav-item mr-3"
+              {% endif %}
+          >
+            <a href="{% url 'index' %}" class="nav-link">Home</a>
+          </li>
+          <li {% if 'about' in request.path %} class="nav-item active mr-3"
+              {% else %}
+          class="nav-item mr-3"
+              {% endif %}
+          >
+            <a href="{% url 'about' %}" class="nav-link">About</a>
+          </li>
+          <li {% if 'listings' in request.path %} class="nav-item active mr-3"
+              {% else %}
+          class="nav-item mr-3"
+              {% endif %}>
+            <a href="{% url 'listings' %}" class="nav-link">Featured Listings</a>
+          </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+            <li {% if 'dashboard' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+              <a href="{% url 'dashboard' %}" class="nav-link">
+                 Welcome {{user.username}} <i class="fas fa-cog"></i> Dashboard</a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>Logout
+              </a>
+              <form action="{% url 'logout' %}" method="post" id="logout">
+              {% csrf_token %}
+               <input type="hidden" name=""> 
+              </form>
+            </li>
+          
+          {% else %}
+    
+            <li {% if 'register' in request.path %} class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}>
+              <a href="{% url 'register' %}" class="nav-link">
+                <i class="fas fa-user-plus"></i> Register</a>
+            </li>
+            <li {% if 'login' in request.path %} class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}>
+              <a href="{% url 'login' %}" class="nav-link">
+                <i class="fas fa-sign-in-alt"></i> Login</a>
+            </li>       
+        </ul>
+      {% endif %}
+      </div>
+    </div>
+  </nav>
+  <!-- End of nav -->
