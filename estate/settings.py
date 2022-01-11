@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'estate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('RDB_NAME'),
-        'USER': os.environ.get('RDB_USER'),
-        'PASSWORD': os.environ.get('RDB_PASS'),
-        'HOST': os.environ.get('RDB_HOST'),
+        'NAME': 'd9pmpg6pjumv1k', #os.environ.get('RDB_NAME'),
+        'USER': 'xocrdsbkhwuacv', #os.environ.get('RDB_USER'),
+        'PASSWORD': '05286eee4f3e035142c215c1c1de1666424d7156374e8e85c1c95509de2f8919', #os.environ.get('RDB_PASS'),
+        'HOST': 'ec2-34-230-198-12.compute-1.amazonaws.com', #os.environ.get('RDB_HOST'),
         'PORT': '5432',
     }
 }
